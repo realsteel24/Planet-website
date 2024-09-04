@@ -7,15 +7,6 @@ interface SideMenuProps {
 }
 
 const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose }) => {
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const href = e.currentTarget.getAttribute('href');
-    onClose();
-    setTimeout(() => {
-      window.location.href = href || '/';
-    }, 300);
-  };
-
   return (
     <>
       {/* Mobile menu */}
@@ -31,11 +22,11 @@ const SideMenu: React.FC<SideMenuProps> = ({ isOpen, onClose }) => {
             </svg>
           </button>
           <ul className="space-y-2 mt-8">
-            <li><Link to="/" className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700 rounded transition-colors" onClick={handleLinkClick}>Home</Link></li>
-            <li><Link to="/about" className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700 rounded transition-colors" onClick={handleLinkClick}>About Us</Link></li>
-            <li><Link to="/schedule" className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700 rounded transition-colors" onClick={handleLinkClick}>Schedule</Link></li>
-            <li><Link to="/contact" className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700 rounded transition-colors" onClick={handleLinkClick}>Contact Us</Link></li>
-            <li><Link to="/login" className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700 rounded transition-colors" onClick={handleLinkClick}>Member Login</Link></li>
+            <li><Link to="/" className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700 rounded transition-colors" onClick={onClose}>Home</Link></li>
+            <li><Link to="/about" className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700 rounded transition-colors" onClick={onClose}>About Us</Link></li>
+            <li><Link to="/schedule" className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700 rounded transition-colors" onClick={onClose}>Schedule</Link></li>
+            <li><Link to="/contact" className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700 rounded transition-colors" onClick={onClose}>Contact Us</Link></li>
+            <li><Link to="/login" className="block py-2 px-4 text-gray-300 hover:text-white hover:bg-gray-700 rounded transition-colors" onClick={onClose}>Member Login</Link></li>
           </ul>
         </div>
       </div>
